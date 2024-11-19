@@ -46,7 +46,6 @@ const ReceitasPorMes = () => {
       height: '300',
       backgroundColor: 'white',
       borderRadius: '10px',
-      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
       padding: '20px',
       gridColumn: 'span 2',
       boxShadow: '0px 0px 15px rgba(198, 198, 198, 0.164)'
