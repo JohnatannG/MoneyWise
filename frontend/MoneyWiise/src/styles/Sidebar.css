@@ -1,0 +1,149 @@
+.Sidebar {
+    padding: 2rem 3rem;
+    height: 100vh;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-white);
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease; 
+}
+
+.Sidebar.closed {
+    transform: translateX(-100%); 
+}
+
+.Sidebar.open {
+    transform: translateX(0); 
+}
+
+
+.toggle-sidebar {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .toggle-sidebar {
+        display: block;
+    }
+}
+
+@media (max-width: 1024px) {
+    .Sidebar {
+        position: fixed;
+        width: 80%;
+    }
+
+    .Sidebar.closed {
+        transform: translateX(-100%); 
+    }
+
+    .Sidebar.open {
+        transform: translateX(0); 
+    }
+}
+
+
+@media (min-width: 1025px) {
+    .Sidebar {
+        position: fixed;
+        width: 14vw;
+        transform: translateX(0); 
+    }
+
+    .toggle-sidebar {
+        display: none;
+    }
+}
+
+
+
+.Tittle-and-List {
+    margin-bottom: 15rem;
+}
+
+.Tittle-sidebar {
+    font-size: 2rem;
+    color: var(--color-dark-text);
+}
+
+.List-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+.List-modal li {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 1rem;
+}
+
+.List-modal li:hover {
+    transition: .3s;
+    background-color: var(--color-primary-hover);
+    border-radius: 0.5rem;
+}
+
+.List-modal-active {
+    background-color: var(--color-primary);
+    transition: .2s;
+    color: var(--color-white);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.List-modal li.List-modal-active:hover {
+    background-color: var(--color-primary);
+    cursor: default;
+}
+
+.Tittle-exit {
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.LogoutModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 715%;
+  }
+  
+  .ModalContent {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .ModalContent button {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .ModalContent button:hover {
+    background-color: #f0f0f0;
+  }
+  

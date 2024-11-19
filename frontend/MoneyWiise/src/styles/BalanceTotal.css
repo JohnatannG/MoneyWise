@@ -1,0 +1,18 @@
+.dashboard-balance {
+    background-color: var(--color-white);
+    border-radius: 1rem;
+    padding: 1rem;
+    height: fit-content;
+    box-shadow: 0px 0px 15px rgba(198, 198, 198, 0.164);
+}
+
+.dashboard-balance h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.dashboard-balance p {
+    font-size: 1.9rem;
+    margin-top: 0.5rem;
+}
+

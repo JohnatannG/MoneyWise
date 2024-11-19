@@ -1,0 +1,35 @@
+.Login{
+    padding: 2rem 4rem;
+}
+
+.success {
+    display: flex;
+    gap: 1.5rem;
+
+    background-color: rgba(61, 188, 72, 0.862);
+    color: var(--color-white);
+    
+    width: fit-content;
+    margin: auto;
+    margin-top: 4rem;
+    padding: 1.2rem 4rem;
+
+    border-radius: 0.3rem;
+    font-size: 1.5rem;
+}
+
+.error {
+    display: flex;
+    gap: 1.5rem;
+
+    background-color: rgba(255, 102, 102, 0.862);
+    color: var(--color-white);
+
+    width: fit-content;
+    margin: auto;
+    margin-top: 4rem;
+    padding: 1.2rem 4rem;
+
+    border-radius: 0.3rem;
+    font-size: 1.5rem;
+}

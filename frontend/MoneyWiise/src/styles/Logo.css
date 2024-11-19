@@ -1,0 +1,8 @@
+.Logo{
+    font-size: 2.5rem;
+    
+    .Logo-strong{
+        font-size: 1em;
+        color: var(--color-primary);
+    }
+}

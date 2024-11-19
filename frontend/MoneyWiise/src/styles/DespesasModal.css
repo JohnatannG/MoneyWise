@@ -1,0 +1,149 @@
+.DespesasModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 715%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.ModalContent {
+    background-color: #ffffff;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ModalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.ModalHeader svg {
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s;
+}
+
+.ModalHeader svg:hover {
+    color: #ff6f00;
+}
+
+.ModalBody {
+    margin-top: 1rem;
+}
+
+.ModalBody h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.ExpensesTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+.ExpensesTable th,
+.ExpensesTable td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    font-size: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.ExpensesTable th {
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.ExpensesTable td {
+    color: #555;
+}
+
+.ModalFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.ModalFooter button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ModalFooter button:hover {
+    opacity: 0.9;
+}
+
+.ModalFooter .delete {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+.ModalFooter .edit {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+.ModalFooter .add {
+    background-color: #2ecc71;
+    color: #ffffff;
+}
+
+.AddExpenseForm {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.AddExpenseForm input {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.AddExpenseForm button.add {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.AddExpenseForm button.add:hover {
+    background-color: #27ae60;
+}
