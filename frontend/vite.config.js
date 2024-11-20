@@ -7,8 +7,9 @@ export default defineConfig({
   server: {
     historyApiFallback: true,
   },
-  base: './',
+  base: '/MoneyWise/',
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    emptyOutDir: true,
   }
 })
