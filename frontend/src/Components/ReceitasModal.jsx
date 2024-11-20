@@ -103,11 +103,11 @@ export default function ReceitasModal({ onClose }) {
         <div className="ReceitasModal">
             <div className="ModalContent">
                 <div className="ModalHeader">
-                    <span>Receitas</span>
+                    <h3>Receitas</h3>
                     <X size={24} onClick={onClose} />
                 </div>
                 <div className="ModalBody">
-                    <h3>Todas as receitas</h3>
+                    <div className="ScrollableTable">
                     <table className="RevenuesTable">
                         <thead>
                             <tr>
@@ -122,21 +122,23 @@ export default function ReceitasModal({ onClose }) {
                                 <tr key={revenue._id}>
                                     <td>
                                         {revenue.date && !isNaN(new Date(revenue.date))
-                                        ? new Date(new Date(revenue.date).toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' })).toISOString().split('T')[0]
-                                        : 'Data inválida'}
+                                            ? new Date(new Date(revenue.date).toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' })).toISOString().split('T')[0]
+                                            : 'Data inválida'}
                                     </td>
                                     <td>{revenue.category}</td>
                                     <td>R$ {revenue.value}</td>
-                                    <td>
-                                        <button className="edit" onClick={() => editRevenue(revenue)}>Editar</button>
-                                        <button className="delete" onClick={() => handleRemoveRevenue(revenue._id)}>Excluir</button>
+                                    <td className='gap-button-receitas'>
+                                        <button className="button-editar-receitas" onClick={() => editRevenue(revenue)}>Editar</button>
+                                        <button className="button-deletar-receitas" onClick={() => handleRemoveRevenue(revenue._id)}>Excluir</button>
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
+                </div>
+
                     <div className="AddRevenueForm">
-                        <h4>{editingRevenue ? 'Editar Receita' : 'Adicionar Receita'}</h4>
+                        <h4>{editingRevenue ? 'Editar receita' : 'Adicionar receita'}</h4>
                         <input 
                             type="date"
                             name="date"
@@ -144,12 +146,14 @@ export default function ReceitasModal({ onClose }) {
                             onChange={handleInputChange}
                             max="9999-12-31" 
                         />
-                        <input type="text" name="category" value={formRevenue.category} onChange={handleInputChange} />
-                        <input type="number" name="value" value={formRevenue.value} onChange={handleInputChange} />
-                        <button onClick={handleAddOrEditRevenue}>
-                            {editingRevenue ? 'Atualizar' : 'Adicionar'}
-                        </button>
-                        <button onClick={resetForm}>Cancelar</button>
+                        <input placeholder='Digite a categoria' type="text" name="category" value={formRevenue.category} onChange={handleInputChange} />
+                        <input placeholder='Digite o valor' type="number" name="value" value={formRevenue.value} onChange={handleInputChange} />
+                        <div className='button-style-form'>
+                            <button onClick={handleAddOrEditRevenue} className='addicionarOrAtualizar'>
+                                {editingRevenue ? 'Atualizar' : 'Adicionar'}
+                            </button>
+                            <button className='Cancelar' onClick={resetForm}>Cancelar</button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -4,11 +4,11 @@
     left: 0;
     width: 715%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(43, 43, 43, 0.375);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 2;
 }
 
 .ModalContent {
@@ -26,79 +26,114 @@
 .ModalHeader {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 1rem;
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: bold;
-    color: #333;
+
+    h3{
+        font-size: 2rem;
+    }
 }
 
 .ModalHeader svg {
     cursor: pointer;
-    color: #666;
     transition: color 0.2s;
 }
 
 .ModalHeader svg:hover {
-    color: #ff6f00;
+    color: #ff0000;
 }
 
-.ModalBody {
-    margin-top: 1rem;
+.ModalBodya {
+    box-shadow: 0px 0px 15px rgba(198, 198, 198, 0.164);
+    border-radius: 1rem;
 }
-
-.ModalBody h3 {
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: #666;
+.tittle-ReceitasOrDespesas {
+    font-size: 2rem;
+    font-weight: 600;
     margin-bottom: 1rem;
+    color: black;
 }
 
 .RevenuesTable {
     width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1.5rem;
 }
+
+.style-dados-overflow{
+    background-color: #2ecc71;
+    height: 10px;
+    overflow: scroll;
+}
+
+.ScrollableTable {
+    max-height: 20em;
+    overflow-y: auto;
+    width: 100%;
+    padding: 1rem;
+    scrollbar-color: var(--color-primary) white;
+    scrollbar-width: thin;
+    box-shadow: 0px 0px 15px rgba(198, 198, 198, 0.164);
+}
+
 
 .RevenuesTable th,
 .RevenuesTable td {
-    padding: 0.8rem 1rem;
     text-align: left;
     font-size: 1rem;
-    border-bottom: 1px solid #e0e0e0;
 }
 
 .RevenuesTable th {
-    color: #333;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    padding: 1rem 2rem;
 }
 
 .RevenuesTable td {
-    color: #555;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
 }
 
+
 .AddRevenueForm {
-    margin-top: 1rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    background-color: #f5f5f5;
+    box-shadow: 0px 0px 15px rgba(198, 198, 198, 0.164);
     padding: 1rem;
     border-radius: 8px;
+
+    h4{
+        font-size: 2rem;
+    }
 }
 
 .AddRevenueForm input {
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    width: 100%;
+    padding: 1rem;
+    border: none;
+
+    background-color: var(--color-input-modal);
+    input{
+        font-size: 1.2rem;
+        padding: 1.7rem;
+
+        border: none;
+        border-radius: 0.3rem;
+    }
 }
 
-.AddRevenueForm button {
-    background-color: #2ecc71;
+.button-style-form{
+    display: flex;
+    gap: 1rem;
+}
+
+.addicionarOrAtualizar {
+    background-color: var(--color-primary);
     color: white;
     border: none;
     padding: 0.8rem 1rem;
@@ -109,6 +144,52 @@
     transition: background-color 0.2s;
 }
 
-.AddRevenueForm button:hover {
-    background-color: #27ae60;
+.addicionarOrAtualizar:hover {
+    background-color: var(--color-primary-hover-button);
+}
+
+.Cancelar{
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background-color 0.2s;
+
+    &:hover{
+        background-color: var(--color-primary-hover);
+    }
+}
+
+.gap-button-receitas{
+    display: flex;
+    gap: 1rem;
+}
+
+.button-editar-receitas{
+    background-color: var(--color-primary);
+    color: white;
+    transition: .2s;
+    border-radius: 0.4rem;
+    border: none;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+
+    &:hover{
+        background-color: var(--color-primary-hover-button);
+    }
+}
+
+.button-deletar-receitas{
+    border: 1px solid var();
+    padding: 0.8rem 2rem;
+    border-radius: 0.4rem;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+    
+    &:hover{
+        background-color: var(--color-primary-hover);
+    }
 }

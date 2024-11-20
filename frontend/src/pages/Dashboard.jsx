@@ -23,8 +23,8 @@ export default function Dashboard() {
         <SaldoComDespesas />
         <DespesasTotal />
         <TotalReceitas />
-        <UltimasReceitas />
         <UltimasDespesas />
+        <UltimasReceitas />
         <PrecosPorMes />
         <ReceitasPorMes />
         <UltimasMetas goals={goals}/>

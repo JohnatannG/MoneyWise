@@ -30,7 +30,7 @@ export default function UltimasDespesas() {
     return (
         <div className="ultimas-despesas">
             <h3>Últimas Despesas</h3>
-            <table>
+            <table className='test-center-table'>
                 <thead>
                     <tr>
                         <th>Data</th>

@@ -7,7 +7,12 @@ export default function UltimasReceitas() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetchLastRevenues();
+    const intervalId = setInterval(() => {
+      fetchLastRevenues();
+    }, 1000); // 1000ms = 1 segundo
+
+    // Limpar o intervalo quando o componente for desmontado
+    return () => clearInterval(intervalId);
   }, []);
 
   const fetchLastRevenues = async () => {
@@ -18,7 +23,7 @@ export default function UltimasReceitas() {
       const sortedRevenues = response.data.sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
-      setLastRevenues(sortedRevenues.slice(0, 3));
+      setLastRevenues(sortedRevenues.slice(0, 3)); // Exibir apenas as 3 últimas receitas
     } catch (error) {
       console.error("Erro ao carregar as últimas receitas:", error);
       setError("Erro ao carregar as receitas.");
@@ -31,10 +36,10 @@ export default function UltimasReceitas() {
 
   return (
     <div className="ultimas-receitas">
-      <h3>Todas as Receitas</h3>
+      <h3>Últimas Receitas</h3>
       <table>
-        <thead>
-          <tr>
+        <thead className="tesxte-da">
+          <tr className="table-teste">
             <th>Data</th>
             <th>Categoria</th>
             <th>Valor</th>

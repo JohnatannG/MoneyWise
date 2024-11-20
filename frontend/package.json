@@ -13,10 +13,12 @@
     "@chakra-ui/react": "^3.1.2",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "chart.js": "^4.4.6",
     "framer-motion": "^11.11.17",
     "lucide": "^0.460.0",
     "lucide-react": "^0.460.0",
     "react": "^18.3.1",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
     "react-router": "^6.28.0",
     "recharts": "^2.13.3"

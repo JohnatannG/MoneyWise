@@ -32,8 +32,6 @@ export default function Sidebar() {
 
 
   const handleConfirmLogout = () => {
-
-
     navigate("/");
   };
 
@@ -79,10 +77,10 @@ export default function Sidebar() {
 
       {isLogoutModalOpen && (
         <div className="LogoutModal">
-          <div className="ModalContent">
-            <h3>Tem certeza que deseja sair?</h3>
-            <button onClick={handleConfirmLogout}>Sim</button>
-            <button onClick={handleCancelLogout}>Cancelar</button>
+          <div className="ModalContent-logout">
+            <h3 className="TitleLogOut">Tem certeza que deseja sair?</h3>
+            <button onClick={handleConfirmLogout}><p className="Sair">Sim</p></button>
+            <button onClick={handleCancelLogout}><p className="NaoSair">Cancelar</p></button>
           </div>
         </div>
       )}

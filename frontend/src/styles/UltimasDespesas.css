@@ -22,25 +22,13 @@
 }
 
 .ultimas-despesas th, .ultimas-despesas td {
+    border: 1px solid var(--color-primary-hover);
     padding: 10px;
-    border: 1px solid #ddd;
     text-align: center;
+    font-size: 1.3rem;
 }
 
 .ultimas-despesas th {
-    background-color: #f5f5f5;
-}
-
-.ultimas-despesas .ver-mais {
-    background-color: #FF6F00;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.ultimas-despesas .ver-mais:hover {
-    background-color: #e65c00;
+    background-color: var(--color-primary-hover);
+    font-weight: 600;
 }

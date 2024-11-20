@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
+import {
+  Chart as ChartJS,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import '../styles/PrecosPorMes.css';
+
+// Registrar componentes do Chart.js
+ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const PrecosPorMes = () => {
   const [expensesData, setExpensesData] = useState([]);
-  const [dataChart, setDataChart] = useState([]);
 
   useEffect(() => {
     const fetchExpenses = async () => {
@@ -12,9 +23,7 @@ const PrecosPorMes = () => {
         const response = await axios.get('http://localhost:5000/api/expenses', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
-        const expenses = response.data;
-        setExpensesData(expenses);
-        formatDataForChart(expenses);
+        setExpensesData(response.data);
       } catch (error) {
         console.error('Erro ao carregar as despesas:', error);
       }
@@ -23,44 +32,58 @@ const PrecosPorMes = () => {
     fetchExpenses();
   }, []);
 
-  const formatDataForChart = (expenses) => {
-    const formattedData = expenses.reduce((acc, expense) => {
-      const monthYear = new Date(expense.date).toLocaleString('default', { month: 'short', year: 'numeric' });
+  // Dados para o gráfico
+  const chartData = {
+    labels: expensesData.map(expense => expense.category || 'Sem Categoria'), // Exibe a categoria ou "Sem Categoria"
+    datasets: [
+      {
+        label: 'Despesas',
+        data: expensesData.map(expense => parseFloat(expense.value)), // Valores das despesas
+        backgroundColor: '#6A00DB',
+        borderColor: '#4A00B3',
+        borderWidth: 1,
+      },
+    ],
+  };
 
-      const existingMonth = acc.find(item => item.name === monthYear);
-      if (existingMonth) {
-        existingMonth.value += parseFloat(expense.value);
-      } else {
-        acc.push({ name: monthYear, value: parseFloat(expense.value) });
-      }
-
-      return acc;
-    }, []);
-
-    setDataChart(formattedData);
+  // Configurações do gráfico
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            return `R$ ${context.raw.toFixed(2)}`;
+          },
+        },
+      },
+    },
+    scales: {
+      y: {
+        title: {
+          display: true,
+          text: 'Valor (R$)',
+        },
+        beginAtZero: true,
+      },
+    },
   };
 
   return (
     <div style={{
       width: '100%',
-      height: '300',
+      height: 'fit-content',
       backgroundColor: 'white',
       borderRadius: '10px',
       padding: '20px',
       gridColumn: 'span 2',
       boxShadow: '0px 0px 15px rgba(198, 198, 198, 0.164)',
     }}>
-      <h3>Variação de Preço por Mês das despesas</h3>
-      <ResponsiveContainer width="90%" height="90%">
-        <BarChart data={dataChart}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="value" fill="#6A00DB" barSize={30} />
-        </BarChart>
-      </ResponsiveContainer>
+
+      <Bar data={chartData} options={options} />
     </div>
   );
 };

@@ -7,9 +7,11 @@
 
   --color-primary: #6A00DB;
   --color-primary-hover: #f0e2ff98;
+  --color-primary-hover-button: #7b00ff;
   --color-primary-hover-links: #f4eaff;
   --color-dark-text: #292929;
   --color-white: #ffffff;
   --color-input: #f6f6f6;
+  --color-input-modal: #eaeaea56;
   --color-background: #FCFCFC;
 }
