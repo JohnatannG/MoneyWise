@@ -5,7 +5,7 @@ const { addRevenue, getRevenues, deleteRevenue, updateRevenue } = require('../co
 
 router.post('/add', authenticate, addRevenue);
 router.get('/', authenticate, getRevenues);
-router.delete('/:id', authenticate, deleteRevenue);
 router.put('/:id', authenticate, updateRevenue);
+router.delete('/:id', authenticate, deleteRevenue);
 
 module.exports = router;

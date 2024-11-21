@@ -29,6 +29,7 @@ const PrecosPorMes = () => {
     };
 
     fetchExpenses();
+    const interval = setInterval(fetchExpenses, 3000);
   }, []);
 
   const chartData = {

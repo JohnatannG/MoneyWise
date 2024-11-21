@@ -1,10 +1,12 @@
 const express = require('express');
-const router = express.Router();
-const goalsController = require('../controllers/goalsController');
+const { getGoals, addGoal, updateGoal, deleteGoal } = require('../controllers/goalController');
+const authMiddleware = require('../middleware/authMiddleware');
 
-router.get('/', goalsController.getGoals);
-router.post('/', goalsController.createOrUpdateGoal);
-router.put('/:id', goalsController.createOrUpdateGoal);
-router.delete('/:id', goalsController.deleteGoal);
+const router = express.Router();
+
+router.get('/', authMiddleware, getGoals);
+router.post('/', authMiddleware, addGoal);
+router.put('/:id', authMiddleware, updateGoal);
+router.delete('/:id', authMiddleware, deleteGoal);
 
 module.exports = router;

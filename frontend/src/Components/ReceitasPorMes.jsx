@@ -32,6 +32,7 @@ const ReceitasPorMes = () => {
     };
 
     fetchRevenues();
+    const interval = setInterval(fetchRevenues, 3000);
   }, []);
 
   const formatDataForChart = (revenues) => {

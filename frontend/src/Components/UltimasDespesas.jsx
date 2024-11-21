@@ -8,6 +8,7 @@ export default function UltimasDespesas() {
 
     useEffect(() => {
         fetchLastExpenses();
+        const interval = setInterval(fetchLastExpenses, 3000);
     }, []);
 
     const fetchLastExpenses = async () => {
@@ -22,6 +23,8 @@ export default function UltimasDespesas() {
             setError('Erro ao carregar as despesas.');
         }
     };
+
+
 
     if (error) {
         return <p className="error">{error}</p>;

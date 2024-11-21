@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const expenseRoutes = require('./routes/expenseRoutes');
 const revenueRoutes = require('./routes/revenueRoutes');
-const goalsRoutes = require('./routes/goalsRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -14,7 +13,6 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 mongoose.connect(process.env.MONGO_URI)
-
   .then(() => console.log('Conectado ao MongoDB'))
   .catch(err => console.error('Erro ao conectar ao MongoDB:', err));
 

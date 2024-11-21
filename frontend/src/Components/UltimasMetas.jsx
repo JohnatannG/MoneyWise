@@ -1,55 +1,39 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'; 
+import axios from 'axios';
 import '../styles/UltimasMetas.css';
 
 export default function UltimasMetas() {
     const [goals, setGoals] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
+        // Função para buscar metas do servidor
         const fetchGoals = async () => {
             try {
-                const token = localStorage.getItem('token');
-                if (!token) {
-                    setError('Token de autenticação não encontrado.');
-                    return;
-                }
-
                 const response = await axios.get('http://localhost:5000/api/goals', {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
+                    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
                 });
-
                 setGoals(response.data);
-            } catch (err) {
-                console.error('Erro ao buscar as metas:', err);
-                setError('Erro ao carregar as metas.');
-            } finally {
-                setLoading(false);
+            } catch (error) {
+                console.error('Erro ao carregar as metas:', error);
             }
         };
 
+        // Busca as metas imediatamente ao montar o componente
         fetchGoals();
 
-        const intervalId = setInterval(() => {
-            fetchGoals();
-        }, 1000);
+        // Atualiza as metas a cada 3 segundos
+        const interval = setInterval(fetchGoals, 3000);
 
-        return () => clearInterval(intervalId);
+        // Limpa o intervalo quando o componente for desmontado
+        return () => clearInterval(interval);
     }, []);
 
+    // Ordena as metas pela ordem de adição e pega as 3 últimas
     const lastGoals = [...goals].slice(-3).reverse();
-
-    if (loading) {
-        return <p>Carregando...</p>;
-    }
 
     return (
         <div className="ultimas-metas">
             <h3>Últimas Metas</h3>
-            {error && <p className="error">{error}</p>}
             {lastGoals.length > 0 ? (
                 <table>
                     <thead>
