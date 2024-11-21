@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const expenseRoutes = require('./routes/expenseRoutes');
 const revenueRoutes = require('./routes/revenueRoutes');
+const goalsRoutes = require('./routes/goalsRoutes');
 require('dotenv').config();
 
 const app = express();
