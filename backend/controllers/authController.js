@@ -5,11 +5,14 @@ const bcrypt = require('bcryptjs');
 async function login(req, res) {
     try {
         const { email, password } = req.body;
+        console.log('Email recebido:', email);
+        
         console.log('Dados recebidos para login:', { email, password });
 
         const user = await User.findOne({ email });
+        console.log('Usuário encontrado:', user);
         if (!user || !(await bcrypt.compare(password, user.password))) {
-            console.log('Erro: Usuário não encontrado com email:', email);
+            console.log('Senha incorreta ou usuário não encontrado.');
             return res.status(401).json({ message: "Credenciais inválidas." });
         }
 
