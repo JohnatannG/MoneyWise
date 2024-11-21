@@ -15,3 +15,9 @@
     font-size: 1.9rem;
     margin-top: 0.5rem;
 }
+
+@media (max-width: 1024px){
+    .dashboard-expenses{
+        grid-column: 1 / 2;
+    }
+}

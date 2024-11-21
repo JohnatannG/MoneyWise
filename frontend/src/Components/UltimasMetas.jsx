@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'; // Certifique-se de instalar o Axios
+import axios from 'axios'; 
 import '../styles/UltimasMetas.css';
 
 export default function UltimasMetas() {
@@ -10,14 +10,12 @@ export default function UltimasMetas() {
     useEffect(() => {
         const fetchGoals = async () => {
             try {
-                // Obtendo o token do localStorage
                 const token = localStorage.getItem('token');
                 if (!token) {
                     setError('Token de autenticação não encontrado.');
                     return;
                 }
 
-                // Realizando a requisição para buscar as metas
                 const response = await axios.get('http://localhost:5000/api/goals', {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -33,19 +31,16 @@ export default function UltimasMetas() {
             }
         };
 
-        // Chama a função inicialmente
         fetchGoals();
 
-        // Configura o intervalo para atualizar a cada 1 segundo (1000ms)
         const intervalId = setInterval(() => {
             fetchGoals();
         }, 1000);
 
-        // Limpa o intervalo quando o componente for desmontado
         return () => clearInterval(intervalId);
     }, []);
 
-    const lastGoals = [...goals].slice(-3).reverse(); // Pega as últimas 3 metas
+    const lastGoals = [...goals].slice(-3).reverse();
 
     if (loading) {
         return <p>Carregando...</p>;

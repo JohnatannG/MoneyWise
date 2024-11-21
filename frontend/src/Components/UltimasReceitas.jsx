@@ -9,9 +9,8 @@ export default function UltimasReceitas() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       fetchLastRevenues();
-    }, 1000); // 1000ms = 1 segundo
+    }, 1000); 
 
-    // Limpar o intervalo quando o componente for desmontado
     return () => clearInterval(intervalId);
   }, []);
 
@@ -23,7 +22,7 @@ export default function UltimasReceitas() {
       const sortedRevenues = response.data.sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
-      setLastRevenues(sortedRevenues.slice(0, 3)); // Exibir apenas as 3 últimas receitas
+      setLastRevenues(sortedRevenues.slice(0, 3));
     } catch (error) {
       console.error("Erro ao carregar as últimas receitas:", error);
       setError("Erro ao carregar as receitas.");

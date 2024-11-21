@@ -101,7 +101,7 @@ export default function ReceitasModal({ onClose }) {
 
     return (
         <div className="ReceitasModal">
-            <div className="ModalContent">
+            <div className="ModalContentDespesasOrReceitas">
                 <div className="ModalHeader">
                     <h3>Receitas</h3>
                     <X size={24} onClick={onClose} />

@@ -10,8 +10,8 @@ export default function MetasModal({ onClose }) {
 
     useEffect(() => {
         fetchGoals();
-        const interval = setInterval(fetchGoals, 1000); // Atualiza as metas a cada 1 segundo
-        return () => clearInterval(interval); // Limpa o intervalo ao desmontar o componente
+        const interval = setInterval(fetchGoals, 1000);
+        return () => clearInterval(interval);
     }, []);
 
     const fetchGoals = async () => {
@@ -81,7 +81,7 @@ export default function MetasModal({ onClose }) {
 
     return (
         <div className="MetasModal">
-            <div className="ModalContent">
+            <div className="ModalContentDespesasOrReceitas">
                 <div className="ModalHeader">
                     <h3>Metas</h3>
                     <X size={24} onClick={onClose} />

@@ -11,7 +11,6 @@ import {
 } from 'chart.js';
 import '../styles/PrecosPorMes.css';
 
-// Registrar componentes do Chart.js
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const PrecosPorMes = () => {
@@ -32,13 +31,12 @@ const PrecosPorMes = () => {
     fetchExpenses();
   }, []);
 
-  // Dados para o gráfico
   const chartData = {
-    labels: expensesData.map(expense => expense.category || 'Sem Categoria'), // Exibe a categoria ou "Sem Categoria"
+    labels: expensesData.map(expense => expense.category || 'Sem Categoria'), 
     datasets: [
       {
         label: 'Despesas',
-        data: expensesData.map(expense => parseFloat(expense.value)), // Valores das despesas
+        data: expensesData.map(expense => parseFloat(expense.value)), 
         backgroundColor: '#6A00DB',
         borderColor: '#4A00B3',
         borderWidth: 1,
@@ -46,7 +44,6 @@ const PrecosPorMes = () => {
     ],
   };
 
-  // Configurações do gráfico
   const options = {
     responsive: true,
     plugins: {
@@ -73,7 +70,7 @@ const PrecosPorMes = () => {
   };
 
   return (
-    <div style={{
+    <div className='graficodespesas' style={{
       width: '100%',
       height: 'fit-content',
       backgroundColor: 'white',

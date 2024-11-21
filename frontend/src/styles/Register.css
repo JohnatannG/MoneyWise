@@ -29,8 +29,14 @@
 }
 
 .Forms{
-    width: 40rem;
+    width: 40%;
     margin: 0 auto;
+}
+
+@media (max-width: 1024px){
+    .Forms{
+        width: 100%;
+    }
 }
 
 .forms-inputs{

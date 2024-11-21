@@ -3,3 +3,9 @@
     font-weight: 600;
     margin-bottom: 3rem;
 }
+
+@media (max-width: 1024px) {
+    .graficoreceitas{
+        grid-column: 1 / 3;
+    }
+}

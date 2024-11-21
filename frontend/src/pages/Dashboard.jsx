@@ -1,6 +1,7 @@
+import React, { useState, useEffect } from "react";
 import BalanceTotal from "../Components/BalanceTotal";
 import DespesasTotal from "../Components/DespesasTotal";
-import Metas from "../Components/MetasModal";
+import MobileSidebar from "../Components/MobileSidebar.JSX";
 import PrecosPorMes from "../Components/PrecosPorMes";
 import ReceitasPorMes from "../Components/ReceitasPorMes";
 import SaldoComDespesas from "../Components/SaldoComDespesas";
@@ -10,14 +11,32 @@ import UltimasDespesas from "../Components/UltimasDespesas";
 import UltimasMetas from "../Components/UltimasMetas";
 import UltimasReceitas from "../Components/UltimasReceitas";
 import "../styles/Dashboard.css";
-import React, { useState } from 'react';
 
 export default function Dashboard() {
-    const [goals, setGoals] = useState([]);
+  const [goals, setGoals] = useState([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const checkScreenWidth = () => {
+    if (window.innerWidth <= 1024) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  useEffect(() => {
+    checkScreenWidth(); 
+    window.addEventListener("resize", checkScreenWidth);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenWidth);
+    };
+  }, []);
 
   return (
     <div className="Dashboard">
-      <Sidebar />
+      {isMobile ? <MobileSidebar /> : <Sidebar />}
+
       <div className="grid-container">
         <BalanceTotal />
         <SaldoComDespesas />
@@ -27,7 +46,7 @@ export default function Dashboard() {
         <UltimasReceitas />
         <PrecosPorMes />
         <ReceitasPorMes />
-        <UltimasMetas goals={goals}/>
+        <UltimasMetas goals={goals} />
       </div>
     </div>
   );

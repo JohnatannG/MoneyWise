@@ -15,7 +15,7 @@ export default function DespesasModal({ onClose }) {
     useEffect(() => {
         fetchExpenses();
         const interval = setInterval(() => fetchExpenses(), 1000);
-        return () => clearInterval(interval); // Limpar o intervalo quando o componente for desmontado
+        return () => clearInterval(interval);
     }, []);
 
     const fetchExpenses = async () => {
@@ -101,7 +101,7 @@ export default function DespesasModal({ onClose }) {
 
     return (
         <div className="ReceitasModal">
-            <div className="ModalContent">
+            <div className="ModalContentDespesasOrReceitas">
                 <div className="ModalHeader">
                     <h3>Despesas</h3>
                     <X size={24} onClick={onClose} />

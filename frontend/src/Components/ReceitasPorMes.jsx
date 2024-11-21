@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../styles/ReceitasPorMes.css' 
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 import {
@@ -10,7 +11,6 @@ import {
   Legend,
 } from 'chart.js';
 
-// Registrar componentes do Chart.js
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const ReceitasPorMes = () => {
@@ -55,7 +55,6 @@ const ReceitasPorMes = () => {
     setDataChart(formattedData);
   };
 
-  // Dados para o gráfico
   const chartData = {
     labels: dataChart.map(item => item.name), // Labels serão as categorias
     datasets: [
@@ -69,7 +68,6 @@ const ReceitasPorMes = () => {
     ],
   };
 
-  // Configurações do gráfico
   const options = {
     responsive: true,
     plugins: {
@@ -96,7 +94,7 @@ const ReceitasPorMes = () => {
   };
 
   return (
-    <div style={{
+    <div className='graficoreceitas' style={{
       width: '100%',
       height: 'fit-content',
       backgroundColor: 'white',

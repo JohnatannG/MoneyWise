@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Balancetotal.css';
-
+import '../styles/SaldoComDespesas.css'
 export default function SaldoComDespesas() {
     const [income, setIncome] = useState(null);
     const [expenses, setExpenses] = useState([]);
@@ -88,7 +88,7 @@ export default function SaldoComDespesas() {
     }
 
     return (
-        <div className="dashboard-balance">
+        <div className="dashboard-balancea">
             <h2>Saldo atual</h2>
             {finalBalance !== null ? (
                 <p>R$ {finalBalance.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>

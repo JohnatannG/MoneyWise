@@ -5,6 +5,7 @@
     grid-column: span 4;
     width: 100%;
     box-shadow: 0px 0px 15px rgba(198, 198, 198, 0.164);
+
 }
 
 .ultimas-metas h3 {
@@ -32,3 +33,12 @@
     background-color: var(--color-primary-hover);
     font-weight: 600;
 }
+
+@media (max-width: 1024px){
+    .ultimas-metas{
+        grid-column: 1 / 3;
+        
+    }
+}
+
+
