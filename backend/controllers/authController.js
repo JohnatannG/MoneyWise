@@ -26,7 +26,7 @@ async function register(req, res) {
     }
 }
 
-app.post('/api/auth/login', async (req, res) => {
+async function register(req, res) => {
     try {
         const { email, password } = req.body;
         console.log('Dados recebidos para login:', { email, password });
@@ -50,7 +50,7 @@ app.post('/api/auth/login', async (req, res) => {
         console.error('Erro no login:', error);
         res.status(500).json({ message: "Erro ao fazer login.", error });
     }
-})
+}
 
 const getUserData = async (req, res) => {
     try {
