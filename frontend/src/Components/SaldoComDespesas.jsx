@@ -70,7 +70,7 @@ export default function SaldoComDespesas() {
             let balance = income;
 
             if (revenues.length > 0) {
-                const totalRevenues = revenues.reduce((acc, revenue) => acc + revenue.value, 0);
+                const totalRevenues = revenues.reduce((acc, revenue) => acc - revenue.value, 0);
                 balance -= totalRevenues;
             }
 

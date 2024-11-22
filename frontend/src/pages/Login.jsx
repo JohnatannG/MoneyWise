@@ -44,7 +44,7 @@ export default function Login() {
                 }, 2000);
             } else {
                 console.log("Senha fornecida:", password);
-console.log("Senha armazenada:", user.password);
+                console.log("Senha armazenada:", user.password);
 
                 setError(data.message || 'Credenciais inválidas.');
             }

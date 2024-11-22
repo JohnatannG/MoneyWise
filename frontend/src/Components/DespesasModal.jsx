@@ -137,6 +137,7 @@ export default function DespesasModal({ onClose }) {
                     </table>
                 </div>
 
+                </div>
                     <div className="AddRevenueForm">
                         <h4>{editingExpense ? 'Editar despesa' : 'Adicionar despesa'}</h4>
                         <input 
@@ -155,7 +156,6 @@ export default function DespesasModal({ onClose }) {
                             <button className='Cancelar' onClick={resetForm}>Cancelar</button>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     );

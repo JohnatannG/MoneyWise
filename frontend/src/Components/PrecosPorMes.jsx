@@ -78,7 +78,7 @@ const PrecosPorMes = () => {
       borderRadius: '10px',
       padding: '20px',
       gridColumn: 'span 2',
-      boxShadow: '0px 0px 15px rgba(198, 198, 198, 0.164)',
+      boxShadow: '0px 0px 15px rgba(170, 170, 170, 0.185)',
     }}>
 
       <Bar data={chartData} options={options} />

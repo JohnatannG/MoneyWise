@@ -3,10 +3,11 @@
     border-radius: 1rem;
     padding: 1.5rem;
     height: 23.4em;
-    box-shadow: 0px 0px 15px rgba(198, 198, 198, 0.164);
+    box-shadow: 0px 0px 15px rgba(170, 170, 170, 0.185);
     grid-column: span 2; 
     overflow-y: hidden; 
     margin-top: -15px;
+    outline: 1px solid var(--color-primary-hover);
 }
 
 .ultimas-despesas h3 {

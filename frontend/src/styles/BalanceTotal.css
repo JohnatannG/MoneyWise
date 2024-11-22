@@ -1,9 +1,10 @@
 .dashboard-balance {
-    background-color: var(--color-white);
+    background-image: linear-gradient(--color-white 50%, --color-primary-hover 50%);
     border-radius: 1rem;
     padding: 1rem;
     height: max-content;
-    box-shadow: 0px 0px 15px rgba(198, 198, 198, 0.164);
+    box-shadow: 0px 0px 15px rgba(170, 170, 170, 0.185);
+    outline: 1px solid var(--color-primary-hover);
 }
 
 .dashboard-balance h2 {

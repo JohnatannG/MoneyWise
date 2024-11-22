@@ -5,6 +5,7 @@ import DespesasModal from "./DespesasModal";
 import ReceitasModal from "./ReceitasModal";
 import MetasModal from "./MetasModal";
 import { useNavigate } from "react-router-dom";
+import { LogOut } from "lucide-react";
 
 export default function Sidebar() {
   const [activeItem, setActiveItem] = useState("Dashboard"); 
@@ -61,6 +62,14 @@ export default function Sidebar() {
 
       <div className="Exit" onClick={handleLogoutClick}>
         <h2 className="Tittle-exit">Sair</h2>
+        <LogOut
+          style={
+            {
+              cursor: 'pointer',
+            }
+          }
+          size={17}
+        />
       </div>
 
       {isDespesasModalOpen && (

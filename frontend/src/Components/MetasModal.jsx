@@ -112,6 +112,7 @@ export default function MetasModal({ onClose }) {
                             </tbody>
                         </table>
                     </div>
+                </div>
                     <form className="AddGoalForm">
                         <h4>{editingGoal ? 'Editar Meta' : 'Adicionar Meta'}</h4>
                         <input
@@ -149,7 +150,6 @@ export default function MetasModal({ onClose }) {
                             </button>
                         </div>
                     </form>
-                </div>
             </div>
         </div>
     );
